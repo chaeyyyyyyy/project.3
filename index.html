@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animation</title>
+	<style>
+		body {margin: 0;
+			  padding: 0;
+			  background: url(bg.jpg);}
+		video {opacity: 0;
+			   width: 1000px;
+			   position: absolute;
+			   top: 50%;
+			   left: 50%;
+			   transform: translate(-50%,-50%);
+			   z-index: 3;	
+				}
+		.center{position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background: transparent;}
+		.sun{position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			background: #fff;
+			box-shadow: 0 0 15px rgba(0,155,255,0.5),
+						0 0 30px rgba(0,155,255,0.5),
+						0 0 45px rgba(0,155,255,0.5),
+						0 0 60px rgba(0,155,255,0.5),
+						0 0 15px rgba(0,155,255,0.5);}
+		.sun:before{content: url(sun.png);
+					position: absolute;
+					top: -25px;
+					right: -25px;}
+		.mercury{position: absolute;
+				top: calc(50% - 1px);
+				left: 50%;
+				width: 120px;
+				height: 2px;
+				transform-origin: left;
+				animation: rotate 5s linear infinite;}
+		.mercury:before{content: url(mercury.png);
+						position: absolute;
+						top: -10px;
+						right: 0;		
+						height: 20px;
+						border-radius: 50%;
+						background: #fff;
+						box-shadow: 0 0 15px rgba(0,155,255,0.5),
+									0 0 30px rgba(0,155,255,0.5),
+									0 0 45px rgba(0,155,255,0.5),
+									0 0 60px rgba(0,155,255,0.5),
+									0 0 15px rgba(0,155,255,0.5);
+						animation: rotate 10s linear infinite;}	
+		.venus{ position: absolute;
+				top: calc(50% - 1px);
+				left: 50%;
+			    width: 190px;
+				height: 2px;
+			    transform-origin: left;
+				
+				animation: rotate 12.5s linear infinite;}
+		.venus:before{content: url(venus.png);
+					  position: absolute;
+					  top: -25px;
+					  right: 0;
+					  height: 50px;
+					  border-radius: 50%;
+					  background: #fff;
+					  box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								  0 0 30px rgba(0,155,255,0.5),
+								  0 0 45px rgba(0,155,255,0.5),
+								  0 0 60px rgba(0,155,255,0.5),
+								  0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}		
+		.earth{position: absolute;
+		 		top: calc(50% - 1px);
+				left: 50%;
+				width: 280px;
+				height: 2px;
+				transform-origin: left;
+				animation: rotate 20s linear infinite;}
+		.earth:before{content: url(earth.png);
+					position: absolute;
+					top: -25px;
+					right: 0;
+					height: 55px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								0 0 30px rgba(0,155,255,0.5),
+								0 0 45px rgba(0,155,255,0.5),
+								0 0 60px rgba(0,155,255,0.5),
+								0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}
+		.earth .moon{position: absolute;
+					right: 25px;
+					width: 60px;
+					height: 1px;
+					transform-origin: right;
+					
+					animation: rotate 2.5s linear infinite;}	
+		.earth .moon:before{content: url(moon.png);
+					position: absolute;
+					top:-10px;}
+								
+		.mars{position: absolute;
+			top: calc(50% - 1px);
+			left: 50%;
+			width: 330px;
+			height: 2px;
+			transform-origin: left;
+			
+			animation: rotate 38s linear infinite;}
+		.mars:before{content: url(mars.png);
+					position: absolute;
+					top: -15px;
+					right: 0;
+					height: 28px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								0 0 30px rgba(0,155,255,0.5),
+								0 0 45px rgba(0,155,255,0.5),
+								0 0 60px rgba(0,155,255,0.5),
+								0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}	
+		.jupiter{position: absolute;
+				top: calc(50% - 1px);
+				left: 50%;
+				width: 470px;
+				height: 2px;
+				transform-origin: left;
+				
+				animation: rotate 100s linear infinite;}
+		.jupiter:before{content: url(jupiter.png);
+						position: absolute;
+						top: -60px;
+						right: 0;
+						height: 110px;
+						border-radius: 50%;
+						background: #fff;
+						box-shadow: 0 0 15px rgba(0,155,255,0.5),
+									0 0 30px rgba(0,155,255,0.5),
+									0 0 45px rgba(0,155,255,0.5),
+									0 0 60px rgba(0,155,255,0.5),
+									0 0 15px rgba(0,155,255,0.5);
+						animation: rotate 10s linear infinite;}			
+		.saturn{position: absolute;
+				top: calc(50% - 1px);
+				left: 50%;
+				width: 600px;
+				height: 2px;
+				transform-origin: left;
+				
+				animation: rotate 250s linear infinite;}
+		.saturn:before{content: url(saturn.png);
+					position: absolute;
+					top: -50px;
+					right: 0;
+					height: 95px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								0 0 30px rgba(0,155,255,0.5),
+								0 0 45px rgba(0,155,255,0.5),
+								0 0 60px rgba(0,155,255,0.5),
+								0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}	
+		 .uranus{position: absolute;
+		 		top: calc(50% - 1px);
+				left: 50%;
+				width: 715px;
+				height: 2px;
+				transform-origin: left;
+				
+				animation: rotate 500s linear infinite;}
+		.uranus:before{content: url(uranus.png);
+					position: absolute;
+					top: -40px;
+					right: 0;
+					height: 80px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								0 0 30px rgba(0,155,255,0.5),
+								0 0 45px rgba(0,155,255,0.5),
+								0 0 60px rgba(0,155,255,0.5),
+								0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}	
+		.neptune{position: absolute;
+				top: calc(50% - 1px);
+				left: 50%;
+				width: 810px;
+				height: 2px;
+				transform-origin: left;
+				
+				animation: rotate 1500s linear infinite;}
+		.neptune:before{content: url(neptune.png);
+						position: absolute;
+						top: -40px;
+						right: 0;
+						height: 70px;
+						border-radius: 50%;
+						background: #fff;
+						box-shadow: 0 0 15px rgba(0,155,255,0.5),
+									0 0 30px rgba(0,155,255,0.5),
+									0 0 45px rgba(0,155,255,0.5),
+									0 0 60px rgba(0,155,255,0.5),
+									0 0 15px rgba(0,155,255,0.5);
+						animation: rotate 10s linear infinite;}					
+		 .pluto{position: absolute;
+		 		top: calc(50% - 1px);
+				left: 50%;
+				width: 850px;
+				height: 2px;
+				transform-origin: left;
+				animation: rotate 2500s linear infinite}
+		.pluto:before{content: url(pluto.png);
+					position: absolute;
+					top: -10px;
+					right: 0;
+					height: 20px;
+					border-radius: 50%;
+					background: #fff;
+					box-shadow: 0 0 15px rgba(0,155,255,0.5),
+								0 0 30px rgba(0,155,255,0.5),
+								0 0 45px rgba(0,155,255,0.5),
+								0 0 60px rgba(0,155,255,0.5),
+								0 0 15px rgba(0,155,255,0.5);
+					animation: rotate 10s linear infinite;}				
+		@keyframes rotate{0%{transform: rotate(0deg);}
+						  100%{transform: rotate(360deg);}}															  
+
+	</style>
+</head>
+<body>
+	<div class="center"></div>
+	<div class="sun"></div>
+	<div class="mercury"></div>
+	<div class="venus"></div>
+	<div class="earth"><div class="moon"></div></div>
+	<div class="mars"></div>
+	<div class="jupiter"></div>
+	<div class="saturn"></div>
+	<div class="uranus"></div>
+	<div class="neptune"></div>
+	<div class="pluto"></div>
+	<video src="sun.mp4" onclick=a()></video>
+	<script>
+		var i = 0;
+		function a(){
+				var sun = document.querySelector(".sun");
+				var video = document.querySelector("video");
+				i +=1;
+				if(i%2==1){
+				video.style.opacity = 1;
+				video.play();}
+				else if(i%2==0){
+				video.style.opacity = 0;
+				video.currentTime = 0;
+				video.pause();}	 
+		}
+
+	</script>
+</body>
+</html>
